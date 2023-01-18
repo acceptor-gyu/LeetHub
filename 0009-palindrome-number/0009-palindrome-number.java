@@ -1,8 +1,21 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        String ori = String.valueOf(x);
-        String reversed = new StringBuilder(ori).reverse().toString();
+        if (x < 0) {
+            return false;
+        }
 
-        return ori.equals(reversed);
+        int origin = x;
+        long beawareOfOverflow = 0;
+
+        while (x != 0) {
+            beawareOfOverflow = beawareOfOverflow * 10 + x % 10;
+            x = x / 10;
+        }
+
+        if ((int) beawareOfOverflow == origin) {
+            return true;
+        }
+
+        return false;
     }
 }
