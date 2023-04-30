@@ -15,7 +15,7 @@ class Solution {
         
         int answer = 0;
         
-        for (int num : numSet) {
+        for (Integer num : numSet) {
             answer = num;
         }
         
