@@ -1,17 +1,21 @@
 class Solution {
     public int arraySign(int[] nums) {
-        long acc = 1;
+        int acc = 0;
         
         for (int num : nums) {
             if (num == 0) {
                 return 0;
             }
             
-            long temp = acc * num;
-            
-            acc = temp / Math.abs(temp);
+            if (num < 0) {
+                acc++;
+            }
         }
         
-        return (int) (acc / Math.abs(acc));
+        if (acc % 2 == 1) {
+            return -1;
+        }
+        
+        return 1;
     }
 }
