@@ -11,13 +11,24 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         
-        StringBuilder sb = new StringBuilder();
+        List<Integer> list = new ArrayList<>();
         
         while (head != null) {
-            sb.append(head.val);
+            list.add(head.val);
             head = head.next;
         }
         
-        return sb.toString().equals(sb.reverse().toString());
+        int left = 0;
+        int right = list.size() - 1;
+        
+        while (left < right) {
+            if (list.get(left) != list.get(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        
+        return true;
     }
 }
