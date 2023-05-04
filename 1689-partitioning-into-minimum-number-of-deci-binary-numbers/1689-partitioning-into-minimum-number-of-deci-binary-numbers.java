@@ -1,15 +1,13 @@
 class Solution {
     public int minPartitions(String n) {
         
-        int max = 0;
+        char max = '0';
         for (int i = 0; i < n.length(); i++) {
-            int eachNum = Character.getNumericValue(n.charAt(i));
-            if (eachNum > max) {
-                max = eachNum;
+            if (n.charAt(i) > max) {
+                max = n.charAt(i);
             }
         }
         
-        return max;
-        
+        return max - '0';
     }
 }
